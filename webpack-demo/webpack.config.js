@@ -1,4 +1,8 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require("clean-webpack-plugin")
+
+// plugin 可以在webpack运行到某个时刻的时候，帮你做一些事情
 
 /***
  * 打包index.js文件
@@ -9,7 +13,7 @@ module.exports = {
     entry: './src/index.js',
     mode: 'development',
     output: {
-        filename: 'bundle.js',
+        filename: 'dist.js',
         path: path.resolve(__dirname, 'dist')
     },
     module: {
@@ -29,7 +33,7 @@ module.exports = {
                 }
             },
             {
-                test: /\.scss/,
+                test: /\.scss$/,
                 // loader调用顺序 从后向前
                 use: [
                     'style-loader', 
@@ -37,9 +41,9 @@ module.exports = {
                         loader: 'css-loader',
                         options: {
                             // 遇到@import 语法重新执行两个loader
-                            importLoaders: 2,
+                            importLoaders: 2
                             // css 模块化   style.avatar
-                            module: true
+                            // module: true
                         }
                     }, 
                     'sass-loader', 
@@ -47,5 +51,8 @@ module.exports = {
                 ]
             }
         ]
-    }
+    },
+    plugins: [new HtmlWebpackPlugin({
+        template: 'src/index.html'
+    }), new CleanWebpackPlugin()]
 }

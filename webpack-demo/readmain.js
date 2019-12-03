@@ -27,4 +27,7 @@
  * 
  * 压缩 eot ttf svg （字体图标可以使用 file-loader）
  * 
+ * 
+ * html-webpack-plugin 会在打包结束后，自动生成一个html文件，并把打包生成的js自动引入到这个html中
+ * 
 */
