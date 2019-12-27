@@ -30,4 +30,17 @@
  * 
  * html-webpack-plugin 会在打包结束后，自动生成一个html文件，并把打包生成的js自动引入到这个html中
  * 
+ * sourceMap 构建映射关系
+ * 
+ * 
+ * webpack --watch   可以自动打包
+ * webpack-dev-server   热编译
+ * 
+ * 使用webpack-dev-server 命令之后打包后的文件存在 电脑内存之中
+ * 使用webpack 会生成一个文件夹
+ * 
+ * @babel/polyfill 解析低版本浏览器 不识别ie
+ * 
+ * 在@babel/polyfill 中配置 useBuiltIns: "usage" 可以只设置所需要转换的语法  大大减小打包的体积
+ * 
 */
